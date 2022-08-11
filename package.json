@@ -8,13 +8,13 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "teararoa-gpx-split": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bdoherty/teararoa-gpx-split.git"
   },
-  "author": "",
+  "author": "Brendan Doherty",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/bdoherty/teararoa-gpx-split/issues"

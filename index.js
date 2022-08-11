@@ -13,9 +13,9 @@ const options = {
 const parser = new XMLParser(options);
 const builder = new XMLBuilder(options);
 
-let big_gpx = parser.parse(fs.readFileSync('input/TeAraroaTrail_2021_2022.gpx'));
-let route_gpx = parser.parse(fs.readFileSync('input/TeAraroaTrail_Route_2021_2022.gpx'));
-let plotaroute_gpx = parser.parse(fs.readFileSync('input/TeAraroaTrail_Plotaroute_2021_2022.gpx'));
+let big_gpx = parser.parse(fs.readFileSync('TeAraroaTrail.gpx'));
+let route_gpx = parser.parse(fs.readFileSync('TeAraroaTrail_Route.gpx'));
+let plotaroute_gpx = parser.parse(fs.readFileSync('TeAraroaTrail_Plotaroute.gpx'));
 
 let elevations = {};
 let trkpt = plotaroute_gpx.gpx.trk.trkseg.trkpt;

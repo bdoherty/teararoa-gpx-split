@@ -1,6 +1,6 @@
 {
   "name": "teararoa-gpx-split",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "This utility combines the **Tracks** and **Section Routes** gpx files from https://www.teararoa.org.nz/before-you-go/maps-and-notes-download/, as well as elevation data from https://plotaroute.com/, and then splits into 78 smaller gpx files.  Each file contains the waypoints from the **Section Routes** file, as well as waypoints for each track contained the section.",
   "main": "index.js",
   "dependencies": {
@@ -11,7 +11,7 @@
     "teararoa-gpx-split": "node ./index.js"
   },
   "bin": {
-    "teararoa-gpx-split": "./index.js"
+    "teararoa-gpx-split": "node ./index.js"
   },
   "repository": {
     "type": "git",

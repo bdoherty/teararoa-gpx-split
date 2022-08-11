@@ -1,13 +1,13 @@
 # teararoa-gpx-split
 
-Utility that combines the **Tracks** and **Section Routes** gpx files from https://www.teararoa.org.nz/before-you-go/maps-and-notes-download/, as well as elevation data from https://plotaroute.com/, and then splits into 78 smaller gpx files.  Each file contains the waypoints from the **Section Routes** file, as well as waypoints for each track contained the section.
+This utility combines the **Tracks** and **Section Routes** gpx files from https://www.teararoa.org.nz/before-you-go/maps-and-notes-download/, as well as elevation data from https://plotaroute.com/, and then splits into 78 smaller gpx files.  Each file contains the waypoints from the **Section Routes** file, as well as waypoints for each track contained the section.
 
 I developed this tool to make it easy to navigate these sections on my Garmin watch.  To install, either copy the gpx files to \GARMIN\NewFiles on your Garmin watch, or use [Garmin Basecamp](https://www.garmin.com/en-NZ/software/basecamp/). 
 
-# Download all section files
+# Download all 2021-22 section files
 [teararoa-gpx-split-2021-11-22.zip](https://github.com/bdoherty/teararoa-gpx-split/raw/main/published/teararoa-gpx-split-2021-11-22.zip)
 
-# Section GPX Files
+# 2022-22 Section GPX Files
 
 * 0000Cape Reinga to Ahipara.gpx
 * 0100The Northland Forests.gpx
@@ -87,3 +87,23 @@ I developed this tool to make it easy to navigate these sections on my Garmin wa
 * 2934Tihaka Beach Track.gpx
 * 2946Oreti Beach Track.gpx
 * 2977Invercargill to Bluff.gpx
+
+# How to generate the section files yourself.
+
+1. Go to https://www.teararoa.org.nz/before-you-go/maps-and-notes-download/
+2. Download **Te Araroa Trail Tracks** zip file, open the zip file and save the contents to a folder.  Rename the file to TeAraroaTrail.gpx.
+3. Download **Te Araroa Trail Section Routes** zip file, open the zip file and save the contents to a folder.  Rename the file to TeAraroaTrail_Route.gpx.
+4. Go to https://www.plotaroute.com/routeplanner, choose **Create** > **Upload a route** and then choose to upload TeAraroaTrail.gpx. Once the file is uploaded, choose *D'load* (lower right corner), and ignore any warnings about a large number of directions. Accept the default download options (GPS, GPX, Track, Directions) and choose Download. Save the file to the same folder as TeAraroaTrail_plotaroute.gpx.
+5. Open a command prompt, change directory to the folder that contains the 3 gpx files and run the following command. 
+```npx bdoherty/teararoa-gpx-split```
+
+# How this works
+
+The ```trk```'s in TeAraroaTrail gpx file that are in the same section, all have the same ```desc``` value - this is something like "Cape Reinga to Ahipara", "The Northland Forests", or "Mangakaretu to Kerikeri".  I generate a seperate gpx file for each of these sections. 
+
+The TeAraroaTrail_Route gpx file contains a way point for the start of each of the sections, so I include the relavent start way point.   This will be something like "1 Cape Reinga lighthouse" or "2 Kaka St".   The number is the section number, I change this to the km, so the name of the waypoint will be "0 Cape Reinga lighthouse" " or "100 Kaka St".
+
+I then create a way point for the start of each trk in the section from the TeAraroaTrail gpx file.  The trk names had a sequential number at the start, which I replace with the km, so the name will be something like "102 Herekino Bypass" or "166 Omahuta Forest Road".
+
+I then copy over all the Track Points from (trk.trkseg.trkpt from TeAraroaTrail gpx file), with elevation data pulled in from Plotaroute from (TeAraroaTrail_plotaroute).
+

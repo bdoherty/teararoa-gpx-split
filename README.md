@@ -98,7 +98,7 @@ I developed this tool to make it easy to navigate these sections on my Garmin wa
 5. Download **Te Araroa Trail Section Routes** zip file, open the zip file and save the contents to the above folder.  Rename the file to TeAraroaTrail_Route.gpx.
 6. Go to https://www.plotaroute.com/routeplanner, choose **Create** > **Upload a route** and then choose to upload TeAraroaTrail.gpx. Once the file is uploaded, choose *D'load* (lower right corner), and ignore any warnings about a large number of directions. Accept the default download options (GPS, GPX, Track, Directions) and choose Download. Save the file to the above folder as TeAraroaTrail_plotaroute.gpx.
 
-7. Run the following command `node index.js` from the folder that contains all the files.
+7. from the folder that contains all the files, run the following commands: `npm install` and then `node index.js`.
 
 # How this works
 

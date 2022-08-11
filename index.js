@@ -13,6 +13,11 @@ const options = {
 const parser = new XMLParser(options);
 const builder = new XMLBuilder(options);
 
+['TeAraroaTrail.gpx', 'TeAraroaTrail_Route.gpx', 'TeAraroaTrail_Plotaroute.gpx'].forEach((el) => {
+    if(!fs.existsSync(el)) {
+        throw `${el} not found`;
+    }    
+})
 let big_gpx = parser.parse(fs.readFileSync('TeAraroaTrail.gpx'));
 let route_gpx = parser.parse(fs.readFileSync('TeAraroaTrail_Route.gpx'));
 let plotaroute_gpx = parser.parse(fs.readFileSync('TeAraroaTrail_Plotaroute.gpx'));

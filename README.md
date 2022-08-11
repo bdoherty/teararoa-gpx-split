@@ -90,11 +90,15 @@ I developed this tool to make it easy to navigate these sections on my Garmin wa
 
 # How to generate the section files yourself.
 
-1. Go to https://www.teararoa.org.nz/before-you-go/maps-and-notes-download/
-2. Download **Te Araroa Trail Tracks** zip file, open the zip file and save the contents to a folder.  Rename the file to TeAraroaTrail.gpx.
-3. Download **Te Araroa Trail Section Routes** zip file, open the zip file and save the contents to a folder.  Rename the file to TeAraroaTrail_Route.gpx.
-4. Go to https://www.plotaroute.com/routeplanner, choose **Create** > **Upload a route** and then choose to upload TeAraroaTrail.gpx. Once the file is uploaded, choose *D'load* (lower right corner), and ignore any warnings about a large number of directions. Accept the default download options (GPS, GPX, Track, Directions) and choose Download. Save the file to the same folder as TeAraroaTrail_plotaroute.gpx.
-5. TBC....
+1. Ensure you have nodejs installed.  If not, get it from https://nodejs.org/en/
+2. Download and extract https://github.com/bdoherty/teararoa-gpx-split/archive/refs/heads/main.zip to a new folder.
+ 
+3. Go to https://www.teararoa.org.nz/before-you-go/maps-and-notes-download/
+4. Download **Te Araroa Trail Tracks** zip file, open the zip file and save the contents to the above folder.  Rename the file to TeAraroaTrail.gpx.
+5. Download **Te Araroa Trail Section Routes** zip file, open the zip file and save the contents to the above folder.  Rename the file to TeAraroaTrail_Route.gpx.
+6. Go to https://www.plotaroute.com/routeplanner, choose **Create** > **Upload a route** and then choose to upload TeAraroaTrail.gpx. Once the file is uploaded, choose *D'load* (lower right corner), and ignore any warnings about a large number of directions. Accept the default download options (GPS, GPX, Track, Directions) and choose Download. Save the file to the above folder as TeAraroaTrail_plotaroute.gpx.
+
+7. Run the following command `node index.js` from the folder that contains all the files.
 
 # How this works
 

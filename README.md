@@ -1,13 +1,13 @@
 # teararoa-gpx-split
 
-This utility combines the **Tracks** and **Section Routes** gpx files from https://www.teararoa.org.nz/before-you-go/maps-and-notes-download/, and then splits into 78 smaller gpx files.  Each file contains the waypoints from the **Section Routes** file, as well as km waypoints as well as waypoints for each track contained the section.
+This utility combines the **Tracks** and **Section Routes** gpx files from https://www.teararoa.org.nz/before-you-go/maps-and-notes-download/, and then splits into 78 smaller gpx files, one for each "Section".  Each file contains the waypoints from the **Section Routes** file, as well as km waypoints as well as waypoints for each route contained the section.
 
 I developed this tool to make it easy to navigate these sections on my Garmin watch.  To install, either copy the gpx files to \GARMIN\NewFiles on your Garmin watch, or use [Garmin Basecamp](https://www.garmin.com/en-NZ/software/basecamp/). 
 
-# 2022-23 Section GPX Files
+# Download the 2022-23 Section GPX Files
 [teararoa-gpx-split-2022-10-06.zip](https://github.com/bdoherty/teararoa-gpx-split/raw/main/published/teararoa-gpx-split-2022-10-06.zip)
 
-# 2022-23 Section GPX Files
+# 2022-23 Section names
 
 * 0000Cape Reinga to Ahipara
 * 0100The Northland Forests

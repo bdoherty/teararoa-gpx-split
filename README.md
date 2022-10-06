@@ -1,6 +1,8 @@
 # teararoa-gpx-split
 
-This utility combines the **Tracks** and **Section Routes** gpx files from https://www.teararoa.org.nz/before-you-go/maps-and-notes-download/, and then splits into 78 smaller gpx files, one for each "Section".  Each file contains the waypoints from the **Section Routes** file, as well as km waypoints as well as waypoints for each route contained the section.
+This utility combines the **Tracks** and **Section Routes** gpx files from https://www.teararoa.org.nz/before-you-go/maps-and-notes-download/, and then splits into 78 smaller gpx files, one for each "Section" in the trail notes.  
+
+Each file contains the waypoints from the **Section Routes** file, as well as km waypoints as well as waypoints for each route contained the section.
 
 I developed this tool to make it easy to navigate these sections on my Garmin watch.  To install, either copy the gpx files to \GARMIN\NewFiles on your Garmin watch, or use [Garmin Basecamp](https://www.garmin.com/en-NZ/software/basecamp/). 
 

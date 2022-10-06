@@ -54,20 +54,37 @@ for(let r = 0; r < route_gpx.gpx.rte.length; r++) {
         }
     };
     small_gpx.gpx.metadata.desc = rte.cmt;
-
+/*
     for(let w = 0; w < route_gpx.gpx.wpt.length; w++) {
         let wpt = route_gpx.gpx.wpt[w];
         let km = Number(/^(.*)$/.exec(wpt.cmt)[1]);
+        let km_int = Math.round(km);
         if(from <= km && km <= to) {
-            if(waypoints[parseInt(km)] == null) {
-                waypoints[parseInt(km)] = 1;
-                waypoints[parseInt(km)+1] = 1;
-                waypoints[parseInt(km)-1] = 1;
+            if(waypoints[km_int] == null) {
+                waypoints[km_int] = 1;
                 small_gpx.gpx.wpt.push({
                     '@_lat': wpt['@_lat'],
                     '@_lon': wpt['@_lon'],
-                    'name': wpt.name,
+                    'name': `${km_int} ${wpt.name}`,
                     'src': wpt.src
+                });    
+            }
+        }
+    }*/
+
+    for(let t = 0; t < big_gpx.gpx.trk.length; t++) {
+        let trk = big_gpx.gpx.trk[t];
+        let track_length = parseFromToComment(trk.cmt);
+        let km_int = Math.round(track_length.from);
+        if(from <= track_length.from && track_length.to <= to) {
+
+            if(waypoints[km_int] == null) {
+                waypoints[km_int] = 1;
+                small_gpx.gpx.wpt.push({
+                    '@_lat': trk.trkseg.trkpt[0]['@_lat'],
+                    '@_lon': trk.trkseg.trkpt[0]['@_lon'],
+                    'name': `${track_length.from} ${/^\d* (.*)$/.exec(trk.name)[1]}`,
+                    'desc': trk.cmt
                 });    
             }
         }
@@ -76,31 +93,22 @@ for(let r = 0; r < route_gpx.gpx.rte.length; r++) {
     for(let w = 0; w < big_gpx.gpx.wpt.length; w++) {
         let wpt = big_gpx.gpx.wpt[w];
         let km = Number(/^(.*) km$/.exec(wpt.name)[1]);
-        if(from <= km && km <= to) {
-            small_gpx.gpx.wpt.push({
-                '@_lat': wpt['@_lat'],
-                '@_lon': wpt['@_lon'],
-                'name': wpt.name
-            });    
+        if(from <= km && km <= to) { 
+            if(waypoints[Math.round(km)] == null) {
+                small_gpx.gpx.wpt.push({
+                    '@_lat': wpt['@_lat'],
+                    '@_lon': wpt['@_lon'],
+                    'name': wpt.name
+                });    
+                waypoints[Math.round(km)] = 1;
+            }
         }
-    }
+    }    
 
     for(let t = 0; t < big_gpx.gpx.trk.length; t++) {
         let trk = big_gpx.gpx.trk[t];
         let track_length = parseFromToComment(trk.cmt);
         if(from <= track_length.from && track_length.to <= to) {
-
-            if(waypoints[parseInt(track_length.from)] == null) {
-                waypoints[parseInt(track_length.from)] = 1;
-                waypoints[parseInt(track_length.from)+1] = 1;
-                waypoints[parseInt(track_length.from)-1] = 1;
-                small_gpx.gpx.wpt.push({
-                    '@_lat': trk.trkseg.trkpt[0]['@_lat'],
-                    '@_lon': trk.trkseg.trkpt[0]['@_lon'],
-                    'name': `${parseInt(track_length.from)} ${/^\d* (.*)$/.exec(trk.name)[1]}`,
-                    'desc': trk.cmt
-                });    
-            }
 
             for(let p = 0; p < trk.trkseg.trkpt.length; p++) {
                 let trkpt = trk.trkseg.trkpt[p]

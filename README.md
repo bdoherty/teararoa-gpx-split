@@ -6,86 +6,87 @@ Each file has the track, with elevation, waypoints for the start of each track f
 
 I developed this tool to make it easy to navigate these sections on my Garmin watch.  To install, either copy the gpx files to \GARMIN\NewFiles on your Garmin watch, or use [Garmin Basecamp](https://www.garmin.com/en-NZ/software/basecamp/). 
 
-# Download the 2022-23 Section GPX Files
-[teararoa-gpx-split-2022-10-06.zip](https://github.com/bdoherty/teararoa-gpx-split/raw/main/published/teararoa-gpx-split-2022-10-06.zip)
+# Download the 2023-24 Section GPX Files
+[teararoa-gpx-split-2023-08-17.zip](https://github.com/rik-bos/teararoa-gpx-split/raw/main/published/teararoa-gpx-split-2023-08-17.zip)
 
-# 2022-23 Section names
+# 2023-24 Section names
 
-* 0000Cape Reinga to Ahipara
-* 0100The Northland Forests
-* 0198Mangakaretu to Kerikeri
-* 0223Kerikeri to Waitangi
-* 0240Paihia to Opua Coastal Walkway
-* 0249Waikare Connection
-* 0260Russell Forest to Whangarei Heads
-* 0392Bream Bay Walk
-* 0419Cullen Brynderwyn Walkway
-* 0433Bream Tail Mangawhai Walkway
-* 0440Mangawhai to Pakiri
-* 0470Mt Tamahunga (Te Hikoi O Te Kiri)
-* 0481Govan Wilson to Puhoi Valley
-* 0518Puhoi Track
-* 0523Puhoi to Wenderholm
-* 0531Wenderholm to Stillwater
-* 0556Okura to Long Bay
-* 0560North Shore Coastal Walk
-* 0589Coast to Coast Walkway
-* 0604Onehunga to Puhinui
-* 0627Puhinui Stream Track
-* 0637Totara Park to Mangatawhiri
-* 0679Mangatawhiri to Mercer
-* 0692Mercer to Rangiriri
-* 0715Rangiriri to Huntly
-* 0737Hakarimata Walkway
-* 0749Ngaruawahia to Hamilton
-* 0771Hamilton City
-* 0780Waipa Walk
-* 0807Pirongia Traverse
-* 0824Pirongia to Waitomo
-* 0868Pehitawa Track
-* 0881Te Kuiti to Pureora
-* 0939Pureroa Forest - The Timber Trail
-* 1043 42 Traverse
-* 1116Tongariro Alpine Crossing
-* 1134Mangatepopo to National Park
-* 1164National Park to Whanganui River
-* 1252Whanganui River
-* 1374Wanganui to Bulls
-* 1438Bulls to Feilding
-* 1459Feilding to Palmerston North
-* 1477Palmerston North
-* 1490Massey to Levin
-* 1551Tararua Ranges
-* 1597Pukeatua
-* 1623Kapiti Coast
-* 1645Paekakariki Escarpment Track
-* 1655Ara Harakeke
-* 1668Colonial Knob
-* 1692Ngaio
-* 1699Wellington City
-* 1705Wellington South
-* 1715Queen Charlotte Track
-* 1785Anakiwa to Pelorus Bridge
-* 1826Pelorus River Track
-* 1871Richmond Alpine Track
-* 1967Waiau Pass Track
-* 2086Boyle to Arthurs Pass
-* 2202Arthurs Pass to Rakaia
-* 2275Rakaia River to Rangitata River
-* 2345Two Thumb Track
-* 2419Tekapo to Lake Ohau
-* 2505East Ahuriri Track
-* 2531Breast Hill Track
-* 2584Gladstone to Wanaka
-* 2615Glendhu Bay Track
-* 2630Motatapu Alpine Track
-* 2680Wakatipu Track
-* 2709Mavora Walkway
-* 2760Mararoa River Track
-* 2805Takitimu Track
-* 2875Birchwood to Merrivale
-* 2902Longwood Forest Track
-* 2940Long Hilly Track
-* 2947Tihaka Beach Track
-* 2960Oreti Beach Track
-* 2990Invercargill to Bluff
+* 0000 Cape Reinga to Ahipara
+* 0100 The Northland Forests
+* 0198 Mangakaretu to Kerikeri
+* 0224 Kerikeri to Waitangi
+* 0241 Paihia to Opua Coastal Walkway
+* 0250 Waikare Connection
+* 0262 Russell Forest to Whangarei Heads
+* 0393 Bream Bay Walk
+* 0420 Cullen Brynderwyn Walkway
+* 0434 Bream Tail Mangawhai Walkway
+* 0441 Mangawhai to Pakiri
+* 0471 Mt Tamahunga (Te Hikoi O Te Kiri)
+* 0482 Govan Wilson to Puhoi Valley
+* 0519 Puhoi Track
+* 0524 Puhoi to Wenderholm
+* 0531 Wenderholm to Stillwater
+* 0557 Okura to Long Bay
+* 0561 North Shore Coastal Walk
+* 0590 Coast to Coast Walkway
+* 0605 Onehunga to Puhinui
+* 0628 Puhinui Stream Track
+* 0638 totara park to mangatawhiri
+* 0676 Mangatawhiri to Mercer
+* 0690 Mercer to Rangiriri
+* 0713 Rangiriri to Huntly
+* 0734 Hakarimata Walkway
+* 0747 Ngaruawahia to Hamilton
+* 0769 Hamilton City
+* 0778 Waipa Walk
+* 0805 Pirongia Traverse
+* 0821 Pirongia to Waitomo
+* 0865 Pehitawa Track
+* 0881 Te Kuiti to Pureora
+* 0938 pureora forest the timber trail
+* 1042 42 Traverse
+* 1115 Tongariro Alpine Crossing
+* 1134 Mangatepopo to National Park
+* 1164 National Park to Whanganui River
+* 1252 whanganui river via whanganui river
+* 1374 whanganui to bulls
+* 1438 Bulls to Feilding
+* 1459 Feilding to Palmerston North
+* 1476 Palmerston North
+* 1489 Massey to Levin
+* 1551 Tararua Ranges
+* 1597 Pukeatua
+* 1623 Kapiti Coast
+* 1645 Paekakariki Escarpment Track
+* 1655 Ara Harakeke
+* 1661 Colonial Knob
+* 1683 Ngaio
+* 1699 Wellington City
+* 1705 Wellington South
+* 1715 Queen Charlotte Track
+* 1785 Anakiwa to Pelorus Bridge
+* 1826 Pelorus River Track
+* 1871 Richmond Alpine Track
+* 1967 Waiau Pass Track
+* 2086 Boyle to Arthurs Pass
+* 2202 Arthurs Pass to Rakaia
+* 2275 Rakaia River to Rangitata River
+* 2345 Two Thumb Track
+* 2418 Tekapo to Lake Ohau
+* 2513 East Ahuriri Track
+* 2567 Breast Hill Track
+* 2584 Gladstone to Wanaka
+* 2611 Glendhu Bay Track
+* 2633 Motatapu Alpine Track
+* 2680 Wakatipu Track
+* 2710 Mavora Walkway
+* 2774 Mararoa River Track
+* 2817 Takitimu Track
+* 2851 Birchwood to Merrivale
+* 2904 Longwood Forest Track
+* 2942 Long Hilly Track
+* 2949 Tihaka Beach Track
+* 2962 Oreti Beach Track
+* 2992 Invercargill to Bluff
+

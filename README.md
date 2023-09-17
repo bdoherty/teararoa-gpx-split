@@ -7,7 +7,7 @@ Each file has the track, with elevation, waypoints for the start of each track f
 I developed this tool to make it easy to navigate these sections on my Garmin watch.  To install, either copy the gpx files to \GARMIN\NewFiles on your Garmin watch, or use [Garmin Basecamp](https://www.garmin.com/en-NZ/software/basecamp/). 
 
 # Download the 2023-24 Section GPX Files
-[teararoa-gpx-split-2023-08-17.zip](https://github.com/rik-bos/teararoa-gpx-split/raw/main/published/teararoa-gpx-split-2023-08-17.zip)
+[teararoa-gpx-split-2023-08-17.zip](https://github.com/rik-bos/teararoa-gpx-split/raw/main/published/teararoa-gpx-split-2024-08-17.zip)
 
 # 2023-24 Section names
 

@@ -8,10 +8,12 @@
   },
   "devDependencies": {},
   "scripts": {
-    "teararoa-gpx-split": "node ./index.js"
+    "teararoa-gpx-split": "node ./index.js",
+    "teararoa-gpx-split-new-format": "node ./split-new-format.js"
   },
   "bin": {
-    "teararoa-gpx-split": "node ./index.js"
+    "teararoa-gpx-split": "node ./index.js",
+    "teararoa-gpx-split-new-format": "node ./split-new-format.js"
   },
   "repository": {
     "type": "git",

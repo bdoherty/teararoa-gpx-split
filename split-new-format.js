@@ -23,17 +23,27 @@ const builder = new XMLBuilder(options);
 const big_gpx = parser.parse(fs.readFileSync('TeAraroaTrail.gpx'));
 const route_gpx = parser.parse(fs.readFileSync('TeAraroaTrail_Route.gpx'));
 
-const segments = []
-const tracks = []
+const segments = [];
 
 for (let r = 0; r < route_gpx.gpx.rte.length; r++) {
     let { src, name } = route_gpx.gpx.rte[r]
     segments.push({ name, src, key: src.split("/").slice(-1)[0], trks: [] })
 }
 
+let lastSegment;
+
 for (let t = 0; t < big_gpx.gpx.trk.length; t++) {
     let trk = big_gpx.gpx.trk[t]
-    let key = trk.src.split("/").slice(-1)[0]
+    let key;
+    // two tracks have wrong keys when derived from the src, manually move those
+    if (trk.name === "412 Millenium Track"){
+        key = "glendhu-bay-track"
+    } else if (trk.name === "267 Campbell Road") {
+        key = "bulls-to-feilding"
+    } else {
+        key = trk.src.split("/").slice(-1)[0]
+    }
+    
     let segment = segments.find(s => s.key == key)
     if (segment) {
         segment.trks.push(trk)

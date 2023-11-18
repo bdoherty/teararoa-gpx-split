@@ -15,13 +15,25 @@ const options = {
 const parser = new XMLParser(options);
 const builder = new XMLBuilder(options);
 
-['TeAraroaTrail.gpx'].forEach((el) => {
+['TeAraroaTrail.gpx', 'TeAraroaTrail_Route.gpx', 'TeAraroaTrail_GpsVisualizer.gpx'].forEach((el) => {
     if (!fs.existsSync(el)) {
         throw `${el} not found`;
     }
 })
 const big_gpx = parser.parse(fs.readFileSync('TeAraroaTrail.gpx'));
 const route_gpx = parser.parse(fs.readFileSync('TeAraroaTrail_Route.gpx'));
+let gpsvisualizer_gpx = parser.parse(fs.readFileSync('TeAraroaTrail_GpsVisualizer.gpx'));
+
+let elevations = {};
+
+gpsvisualizer_gpx.gpx.trk.forEach(trk => {
+    trk.trkseg.trkpt.forEach(trkpt => {
+        if(elevations[String(Number(trkpt['@_lat']).toFixed(7))] == null) {
+            elevations[String(Number(trkpt['@_lat']).toFixed(7))] = {};
+        }
+        elevations[String(Number(trkpt['@_lat']).toFixed(7))][String(Number(trkpt['@_lon']).toFixed(7))] = trkpt.ele.toFixed(0);
+    })
+})
 
 const segments = [];
 
@@ -65,6 +77,8 @@ segments.forEach(segment => {
     let from = Math.min(...limits.map(l => l.from))
     let to = Math.max(...limits.map(l => l.to))
 
+    let track_start = Math.floor(from).toString().padStart(4, "0");
+
     small_gpx = {
         'gpx': {
             '@_creator': big_gpx.gpx['@_creator'],
@@ -72,25 +86,44 @@ segments.forEach(segment => {
             '@_xmlns': big_gpx.gpx['@_xmlns'],
             'metadata': big_gpx.gpx.metadata,
             'wpt': [],
-            'trk': []
-
+            'trk': {
+                'name': `${track_start}${name_prefix}${name}`,
+                'src': segment.src,
+                'trkseg': {
+                    'trkpt': []
+                }
+            }
         }
     };
+    small_gpx.gpx.metadata.desc = `${from} km to ${to} km`;
 
     const waypoints = {}
 
     segment.trks.forEach(trk => {
-        small_gpx.gpx.trk.push(trk);
 
         let track_length = parseFromToComment(trk.cmt);
         let km_int = Math.floor(track_length.from);
-            waypoints[km_int] = 1;
-            small_gpx.gpx.wpt.push({
-                '@_lat': trk.trkseg.trkpt[0]['@_lat'],
-                '@_lon': trk.trkseg.trkpt[0]['@_lon'],
-                'name': `${track_length.from} ${/^\d* (.*)$/.exec(trk.name)[1]}`,
-                'desc': trk.cmt
-            });
+        let segment_start = Math.floor(track_length.from).toString().padStart(4, "0")
+
+        trk.trkseg.trkpt.forEach(trkpt => {
+
+            let small_trkpt= {
+                '@_lat': trkpt['@_lat'],
+                '@_lon': trkpt['@_lon']
+            }
+            if(elevations[Number(trkpt['@_lat']).toFixed(7)] != null) {
+                small_trkpt.ele = elevations[Number(trkpt['@_lat']).toFixed(7)][Number(trkpt['@_lon']).toFixed(7)]
+            }
+            small_gpx.gpx.trk.trkseg.trkpt.push(small_trkpt)
+        });
+
+        waypoints[km_int] = 1;
+        small_gpx.gpx.wpt.push({
+            '@_lat': trk.trkseg.trkpt[0]['@_lat'],
+            '@_lon': trk.trkseg.trkpt[0]['@_lon'],
+            'name': `${track_length.from} ${/^\d* (.*)$/.exec(trk.name)[1]}`,
+            'desc': trk.cmt
+        });
 
     });
 
@@ -114,7 +147,7 @@ segments.forEach(segment => {
 
     // save
     let str = `<?xml version="1.0" encoding="UTF-8"?>\n${builder.build(small_gpx)}`;
-    let filename = `output/${track_start} ${name.replaceAll("/", "_")}`
+    let filename = `output/${track_start}${name_prefix}${name.replaceAll("/", "_")}`
 
     fs.writeFileSync(`${filename}.gpx`, str);
 
